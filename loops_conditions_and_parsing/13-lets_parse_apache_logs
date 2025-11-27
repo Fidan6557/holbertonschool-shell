@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 # Display visitor IP and HTTP status code from Apache access log
-# Format: IP HTTP_CODE
-# The apache-access.log file must be in the same directory as this script
 
-awk '{print $1, $9}' apache-access.log
+LOG_IN_SCRIPT_DIR="$(dirname "$0")/apache-access.log"
+
+if [ -f "$LOG_IN_SCRIPT_DIR" ]; then
+    awk '{print $1, $9}' "$LOG_IN_SCRIPT_DIR"
+elif [ -f apache-access.log ]; then
+    awk '{print $1, $9}' apache-access.log
+else
+    awk '{print $1, $9}'
+fi
