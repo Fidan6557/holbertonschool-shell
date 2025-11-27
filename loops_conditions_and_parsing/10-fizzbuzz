@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Display numbers from 1 to 100 with FizzBuzz rules
+
+i=1
+while [ $i -le 100 ]; do
+    if [ $((i % 15)) -eq 0 ]; then
+        # Multiple of 3 and 5
+        echo "FizzBuzz"
+    elif [ $((i % 3)) -eq 0 ]; then
+        # Multiple of 3
+        echo "Fizz"
+    elif [ $((i % 5)) -eq 0 ]; then
+        # Multiple of 5
+        echo "Buzz"
+    else
+        # Not multiple of 3 or 5
+        echo "$i"
+    fi
+    i=$((i + 1))
+done
