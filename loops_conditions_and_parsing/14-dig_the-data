@@ -1,2 +1,4 @@
 #!/bin/bash
-awk '{print $1, $9}' | sort | uniq -c | sort -nr
+awk '{ print $1, $(NF-1) }' access.log | \
+awk '{ count[$1" "$2]++ } END { for (k in count) print count[k], k }' | \
+sort -nr
