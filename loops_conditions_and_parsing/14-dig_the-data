@@ -6,3 +6,4 @@ awk '{print $1, $9}' apache-access.log \
     | uniq -c \
     | sort -nr \
     | awk '{printf "%8d %s %s\n", $1, $2, $3}'
+
