@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Display files in current directory after the first dash
+
+for file in *; do
+    # ignore hidden files
+    if [[ "$file" != .* ]]; then
+        # remove everything before the first dash (including the dash)
+        echo "${file#*-}"
+    fi
+done
