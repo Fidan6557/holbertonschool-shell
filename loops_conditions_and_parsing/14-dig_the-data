@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script analyzes Apache logs
 awk '{ print $1, $(NF-1) }' access.log | \
 awk '{ count[$1" "$2]++ } END { for (k in count) print count[k], k }' | \
