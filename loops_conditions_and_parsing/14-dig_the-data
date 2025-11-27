@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# analyzing apache log data
+# Groups visitors by IP and HTTP status code
+
 awk '{print $1, $9}' apache-access.log \
-| sort \
-| uniq -c \
-| sort -nr \
-| awk '{print $1, $2, $3}'
+    | sort \
+    | uniq -c \
+    | sort -nr \
+    | awk '{printf "%8d %s %s\n", $1, $2, $3}'
