@@ -1,2 +1,3 @@
 #!/bin/bash
-awk 'NR % 2 == 1'
+nl -ba | grep -E '^[[:space:]]*[13579][[:space:]]' | cut -f2-
+
